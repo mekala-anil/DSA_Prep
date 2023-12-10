@@ -1,0 +1,124 @@
+ArrayList : Dynamic arrays
+------------
+
+ArrayList<Integer> arr=new ArrayList<>();
+
+add(e) : adds element to list
+get(i) : gets element from list as specified index
+set(i,e) : updates element in list as per given index
+reomve(i) : removes specified index element
+remove(arr.size()-1) : removes last element
+contains(e) : return true or false, if element presents then true otherwise false
+isEmpty() : returns empty or not from list
+size() : returns size of list
+
+
+
+Stack : Last in First Out (LIFO)
+--------
+e.g:
+Stack<Integer> s=new Stack<>();
+
+push(e) : pushing elements in stack
+pop() : poping elemet from stack and it will return element poped element
+peek() : returns top of the stack  //throws exception if stack empty
+search(e) : returns position of element if not found it return -1
+contains(e) : return true or false, if element presents then true otherwise false
+isEmpty() : returns empty or not from stack
+size() : returns size of stack
+
+
+Queue : First in First Out (FIFO)
+--------
+
+Queue<Integer>q=new ArrayDeque<>();
+
+offer(e) : inserts element at end of the queue
+poll() : removes elemet from begining
+peek() : returns head/first element of the queue
+contains(e) : return true or false, if element presents then true otherwise false
+isEmpty() : returns empty or not from qeque
+size() : returns size of queue
+
+Iterator : to iterate elements
+Iterator itr=q.iterator();
+while(itr.hasNext()){
+	System.out.println(itr.next());
+}
+
+
+Deque : Both ends operation
+---------
+
+Deque<Integer> dq=new ArrayDeque<>();
+
+addFirst(e) : inserting element at beginning
+addLast(e) : inserting element at end
+pollFirst() : removes and returns first element
+pollLast() : removes and returns last element
+peekFirst() : returns first element
+peekLast() : returns last element
+
+contains(e) : return true or false, if element presents then true otherwise false
+isEmpty() : returns empty or not from Deque
+size() : returns size of Deque
+Iterator : to iterate elements
+Iterator itr=dq.iterator();
+while(itr.hasNext()){
+	System.out.println(itr.next());
+}
+
+HashSet : Stores Keys in Hashtable but without order
+----------
+
+HashSet<Integer> hs=new HashSet<>();
+
+add(e) : adds element in hs
+remove(e) : removes element from hs
+clear() : clears complete hs
+
+contains(e) : return true or false, if element presents then true otherwise false
+isEmpty() : returns empty or not from hs
+size() : returns size of hs
+
+Iterator : to iterate elements
+Iterator itr=hs.iterator();
+while(itr.hasNext()){
+	System.out.println(itr.next());
+}
+
+HashMap : Stores Key value pair based on hashing without any order
+---------
+
+HashMap<String, Integer> hm=new HashMap<>();
+
+put(e, e) : inserts pair in hm
+remove(key) : removes key value pair
+containsKey(key) : returns true or false based on key availability
+get(key) : returns its value associated with that key
+isEmpty() : returns empty or not from hm
+size() : returns size of hm
+
+Traversal : to iterate elements through map
+for(Map.Entry<String, Integer>it : hm.entrySet()){
+	System.out.println(it.getKey()+"  "+it.getValue());
+}
+
+
+
+Collections Class : static methods to perform on collections implimented Classes
+-------------------
+Collections.sort(arr) : Sort the given container elements
+Collections.reverse(arr) : Reverses the given container elements
+Collections.binarSearch(arr, e) : returns position of index if not returns negative poition where it should be
+Collections.max(arr) : returns maximum element from the given container
+Collections.min(arr) : returns minimum element from the given container
+Collections.swap(arr, i, j) : it will swap given index values from given container
+
+
+
+
+
+
+
+
