@@ -44,7 +44,8 @@ class Solution
                     }
                 }
             }
-            if(!q.isEmpty()){
+            // If existing oranges rottens any orange then it will keep in queue and if queue empty then existed oranges didn't rotten any orange
+            if(!q.isEmpty()){            
                 count++;
             }
         }
