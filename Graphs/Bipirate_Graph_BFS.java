@@ -24,6 +24,8 @@
       it will assign either 1 or 0
 
     5. Check if colur[x]==colour[node] then return false
+
+    
 */
 
 class Solution
