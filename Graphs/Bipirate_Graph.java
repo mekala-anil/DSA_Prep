@@ -11,6 +11,19 @@
 
   4. Will do BFS by giving initial color 
   5. If we find any visited vertex with same colour as node then graph is not bipirate
+
+  Alternate Loginc
+  ----------------
+  1. We can eliminate Pair array by using colour array
+  2. Initialize colour array with -1 completely, it indicates not visited and not coloured
+  3. Initial color give 0
+  4. give child colur as 1 
+
+      colour[x]=1-colur[node];
+
+      it will assign either 1 or 0
+
+    5. Check if colur[x]==colour[node] then return false
 */
 
 class Solution
