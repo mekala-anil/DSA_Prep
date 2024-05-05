@@ -4,6 +4,13 @@
 
 /*
   1. Do BFS Traversal, 
+  2. Maintain visited[] array of Pair type
+  3. Pair will have two fileds
+      boolean vis[];
+      char col;
+
+  4. Will do BFS by giving initial color 
+  5. If we find any visited vertex with same colour as node then graph is not bipirate
 */
 
 class Solution
