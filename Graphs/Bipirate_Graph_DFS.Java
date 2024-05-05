@@ -20,7 +20,7 @@ class Solution
     }
     
     private boolean dfs(int node, int col, int color[], ArrayList<ArrayList<Integer>>adj){
-        color[node]=1-col;
+        color[node]=col;
         for(int x:adj.get(node)){
             
             if(color[x]==-1){
