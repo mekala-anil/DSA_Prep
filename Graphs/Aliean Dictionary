@@ -1,0 +1,83 @@
+/* Aliean Dictionary Problem: In this Alphabets will not be in sequence
+
+https://www.geeksforgeeks.org/problems/alien-dictionary/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=alien-dictionary
+*/
+
+class Solution {
+    public String findOrder(String[] words) {
+        // creating maps to hold connections and indegree
+        Map<Character, ArrayList<Character>>graph=new HashMap<>();
+        Map<Character, Integer>indeg=new HashMap<>();
+        
+        // Adding alphabets to maps because we should not miss any alphabet which not in any relationship
+        for(String str:words){
+            for(int i=0; i<str.length(); i++){
+                graph.put(str.charAt(i), new ArrayList<Character>());
+                indeg.put(str.charAt(i), 0);
+            }
+        }
+        
+        // Creating Connections among them
+        for(int i=0; i<words.length-1; i++){
+            if(createGraph(words[i], words[i+1], graph, indeg)){
+                return "";
+            }
+        }
+        
+        // Putting 0 indegrees in Queue
+        Queue<Character>queue=new ArrayDeque<>();
+        for(Map.Entry<Character, Integer>hm:indeg.entrySet()){
+            if(hm.getValue()==0){
+                queue.offer(hm.getKey());
+            }
+        }
+        
+        // Exploring queues and having final topological sort string
+        String topo="";
+        while(!queue.isEmpty()){
+            char node=queue.poll();
+            topo=topo+node;
+            
+            ArrayList<Character>list=graph.get(node);
+            for(char x:list){
+                int tmp=indeg.get(x);
+                indeg.put(x, --tmp);
+                if(indeg.get(x)==0){
+                    queue.offer(x);
+                }
+            }
+        }
+        if(topo.length()<graph.size()){
+            return "";
+        }
+        return topo;
+    }
+    
+    // function to establish connections
+    private boolean createGraph(String l, String r, Map<Character,
+    ArrayList<Character>>graph, Map<Character, Integer>indeg){
+        int minSize=(l.length()<r.length())?l.length():r.length();
+        
+        int i=0;
+        while(i<minSize){
+            if(l.charAt(i)!=r.charAt(i)){
+                // create connection
+                char u=l.charAt(i);
+                char v=r.charAt(i);
+                graph.get(u).add(v);
+            
+                // in degree
+                int tmp=indeg.get(v);
+                indeg.put(v, ++tmp);
+               
+                return false;
+            }
+            i++;
+        }
+        
+        if(l.length()>minSize){
+            return true;
+        }
+        return false;
+    }
+}
